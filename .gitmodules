@@ -1,0 +1,7 @@
+[submodule "lib/igo-javascript"]
+	path = lib/igo-javascript
+	url = https://github.com/shogo82148/igo-javascript.git
+
+[submodule "lib/zipjs"]
+	path = lib/zipjs
+	url = https://github.com/shogo82148/zipjs.git

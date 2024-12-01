@@ -177,7 +177,7 @@ function AjaxIME(doc) {
     ImeDocument_.ImeRequestCallback = ImeRequestCallback;
     ImeDocument_.ImeChangeMode = ImeChangeMode;
 
-    addEvent(ImeDocument_, 'keydown', ImeDocumentKeyDown);
+    //addEvent(ImeDocument_, 'keydown', ImeDocumentKeyDown);
     addEvent(ImePreEdit_,  'keydown', ImePreEditKeyDown);
     addEvent(ImePreEdit_,  'keyup',   ImePreEditKeyUp);
   
@@ -682,15 +682,17 @@ function ImeRequestCallback(result, source) {
   ImeCurrentDocument_.ImeRequestCallback(result, source);
 }
 
-browser.runtime.onMessage.addListener(function(data){
-  if (data.browserAction) {
-    ImeInit();
-    if (!ImeEnabled_ || data.browserAction === 'ImeChangeMode') {
-      ImeChangeMode();
-    }
-    return;
-  }
-  ImeRequestCallback(data.result, data.source);
-});
-
 addEvent(window, 'load', ImeInit);
+
+if (typeof browser !== 'undefined' && typeof browser.runtime !== 'undefined' && typeof browser.runtime.onMessage !== 'undefined') {
+  browser.runtime.onMessage.addListener(function(data){
+    if (data.browserAction) {
+      ImeInit();
+      if (!ImeEnabled_ || data.browserAction === 'ImeChangeMode') {
+        ImeChangeMode();
+      }
+      return;
+    }
+    ImeRequestCallback(data.result, data.source);
+  });
+}

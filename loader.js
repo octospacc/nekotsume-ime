@@ -30,7 +30,7 @@ function initRuntime () {
 	}
 
 	var worker = new Worker('worker.js');
-	igo.getServerFileToArrayBufffer("skkdic.zip", function(buffer){
+	igo.getServerFileToArrayBufffer('skkdic.bin', function(buffer){
 		event({event: 'downloaded'});
 		var blob = new Blob([new Uint8Array(buffer)]);
 		worker.postMessage({method: 'setdic', dic: blob});
@@ -46,7 +46,9 @@ function initRuntime () {
 	postToWorker = function(data) {
 		worker.postMessage(data);
 	}
-	browser.runtime.onMessage.addListener(postToWorker);
+	if (typeof browser !== 'undefined' && typeof browser.runtime !== 'undefined' && typeof browser.runtime.onMessage !== 'undefined') {
+		browser.runtime.onMessage.addListener(postToWorker);
+	}
 }
 
 if (document.readyState === 'loading') {

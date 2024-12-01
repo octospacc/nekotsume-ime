@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>nekotsume IME Demo</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,minimum-scale=1" />
+	<script src="lib/igo.min.js"></script>
+	<script src="lib/zip.min.js"></script>
+	<script src="loader.js"></script>
+	<script src="ime.js"></script>
+	<style>
+		* { box-sizing: border-box; }
+		textarea { width: 100%; }
+	</style>
+</head>
+<body>
+	<h1>nekotsume IME | ネコツメIME</h1>
+	<p>
+		Efficient Japanese IME for (almost) any website in your web browser!
+		<br />
+		For more information please visit the Git repository:
+		<a href="https://gitlab.com/octospacc/nekotsume-ime">https://gitlab.com/octospacc/nekotsume-ime</a>.
+	</p>
+	<h2>Demo</h2>
+	<p>
+		IME Status: <span name="ImeStatus">Loading</span>
+		<button name="ToggleIme">Toggle IME</button>
+	</p>
+	<textarea placeholder="Write anything..."></textarea>
+	<script>
+		function setImeStatusLabel () {
+			document.querySelector('span[name="ImeStatus"]').textContent = {
+				true: "ON [あ]",
+				false: "OFF [A]",
+			}[ImeEnabled_];
+		}
+		document.querySelector('button[name="ToggleIme"]').onclick = function(){
+			ImeChangeMode();
+			setImeStatusLabel();
+		};
+		setImeStatusLabel();
+	</script>
+</body>
+</html>

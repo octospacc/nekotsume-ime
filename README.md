@@ -6,9 +6,9 @@ Efficient Japanese IME for (almost) any website in your web browser!
 
 ## Copyright Notice
 
-nekotsume IME is forked and readapted to work as a Web Extension from IgoIME by shogo82148 (Taku Kudo): <https://github.com/shogo82148/IgoIME> IgoIME is based on Ajax IME by taku (Taku Kudo).
+_nekotsume IME_ is forked and readapted to work as a Web Extension from _IgoIME_ by shogo82148 (Ichinose Shogo): <https://github.com/shogo82148/IgoIME>. _IgoIME_ is based on _Ajax IME_ by taku (Taku Kudo).
 
-They are not legally open-source, as Ajax IME is available only under the terms of: `(C) Taku Kudo, all rights reserve rd. Personal use only!`
+They are not legally open-source, as _Ajax IME_ is available only under the terms of: `(C) Taku Kudo, all rights reserve rd. Personal use only!`
 
 nekotsume IME is only being distributed in good faith and in the spirit of the fair use doctrine, in the hopes that it can be useful.
 

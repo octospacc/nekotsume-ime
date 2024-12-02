@@ -20,4 +20,4 @@ cd ../..
 
 # Build WebExtension package
 npm install web-ext
-web-ext build --overwrite-dest --ignore-files *.xcf lib/*/
+web-ext build --overwrite-dest --ignore-files logo.xcf demo.html screenshot.png build.sh lib/*/

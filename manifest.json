@@ -2,7 +2,7 @@
   "author": "OctoSpacc",
   "name": "nekotsume IME",
   "description": "Efficient Japanese IME for (almost) any website in your web browser!",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icons": {
     "32": "icons/32.png",
     "40": "icons/40.png",
@@ -27,7 +27,7 @@
   "browser_action": {},
   "background": {
     "scripts": ["webextension.js", "lib/igo.min.js", "lib/zip.min.js", "loader.js"],
-    "persistent": false
+    "persistent": true
   },
   "content_scripts": [
     {

@@ -26,27 +26,37 @@ function igo_request (data) {
 		return {event: 'load'};
 	}
 
-	if (method === 'parse' || method === 'wakati') {
-		morpheme = tagger[method](text);
-	} else if (method === 'parseNBest') {
-		morpheme = tagger.parseNBest(text, best);
-	} else if (method === 'all') {
-		morpheme = [];
-		var nodelist = tagger.parseImpl(text);
-		for (var i=0; i<nodelist.length; ++i) {
-			if (typeof nodelist[i] === 'undefined') continue;
-			for (var j=0; j<nodelist[i].length; ++j) {
-				var vn = nodelist[i][j];
-				if (vn.wordId == 0) continue;
-				morpheme.push({
-					surface: text.substring(vn.start, vn.start + vn.length),
-					feature: tagger.wdc.wordData(vn.wordId).join(''),
-					start: vn.start,
-					length: vn.length,
-					cost: vn.cost,
-				});
+	try {
+		if (method === 'parse' || method === 'wakati') {
+			morpheme = tagger[method](text);
+		} else if (method === 'parseNBest') {
+			morpheme = tagger.parseNBest(text, best);
+		} else if (method === 'all') {
+			morpheme = [];
+			var nodelist = tagger.parseImpl(text);
+			for (var i=0; i<nodelist.length; ++i) {
+				if (typeof nodelist[i] === 'undefined') continue;
+				for (var j=0; j<nodelist[i].length; ++j) {
+					var vn = nodelist[i][j];
+					if (vn.wordId == 0) continue;
+					morpheme.push({
+						surface: text.substring(vn.start, vn.start + vn.length),
+						feature: tagger.wdc.wordData(vn.wordId).join(''),
+						start: vn.start,
+						length: vn.length,
+						cost: vn.cost,
+					});
+				}
 			}
 		}
+	} catch (err) {
+		console.error(err);
+		return {
+			method: method,
+			event: "result",
+			text: text,
+			morpheme: [],
+		};
 	}
 
 	if (morpheme) {

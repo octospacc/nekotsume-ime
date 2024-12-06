@@ -2,6 +2,8 @@
 
 _nekotsume IME_ is an efficient and privacy-friendly Japanese IME for (almost) any website in your web browser. It works fully locally: what you type is never sent on the Internet and stays private. With this, it's also pretty fast, and the suggestions dictionary should be decent.
 
+<a title="Install Firefox Extension" href="https://addons.mozilla.org/firefox/addon/nekotsume-ime/"><img alt="Install Firefox Extension" src="https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png"/></a>
+
 ![](screenshot.png)
 
 <!-- TODO, complete: Features, Usage general/WebExtension/webpage -->

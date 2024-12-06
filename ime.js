@@ -386,7 +386,7 @@ function AjaxIME(doc) {
   }
 
   function ImeSelect(delay) {
-    var result = ImeResults_.length ? ImeResults_[ImeSelectedIndex_] : ImePreEdit_.value;
+    var result = ImeResults_.length && ImeSelectedIndex_ >= 0 ? ImeResults_[ImeSelectedIndex_] : ImePreEdit_.value;
     ImeInsertText(result, delay);
   }
 

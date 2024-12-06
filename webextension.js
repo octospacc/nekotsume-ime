@@ -1,4 +1,4 @@
-var imeEnabled = [];
+var imeEnabled = {};
 
 function callOnCurrentTab (callback) {
 	browser.tabs.query({ currentWindow: true, active: true }).then(function(tabs){
